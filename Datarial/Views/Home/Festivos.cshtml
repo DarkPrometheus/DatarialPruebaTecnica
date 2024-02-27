@@ -1,0 +1,37 @@
+﻿@using (Html.BeginForm("ObtenerFestivos", "Home", FormMethod.Post))
+{
+    <div class="text-center">
+        <h1 class="display-4">Días Festivos</h1>
+        <p>Seleccione un país:</p>
+        <select name="codigoPais" id="codigoPais">
+            <option value="MX">México</option>
+            <option value="US">Estados Unidos</option>
+            <option value="FR">Francia</option>
+        </select>
+        <button type="submit">Mostrar Festivos</button>
+    </div>
+
+    @if (Model != null)
+    {
+        @if (Model.Count > 0)
+        {
+            <div class="text-center">
+                <h3>Dias festivos:</h3>
+                @foreach (Festivos festivo in Model)
+                {
+                    <p>@festivo.LocalName - @festivo.Date</p>
+                }
+            </div>
+        }
+        else
+        {
+            <p>Ha habido un error al obtener los datos</p>
+        }
+    }
+}
+
+@model List<Festivos>
+
+@{
+    ViewData["Title"] = "Festivos";
+}

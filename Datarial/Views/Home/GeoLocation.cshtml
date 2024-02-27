@@ -1,0 +1,44 @@
+﻿@using (Html.BeginForm("ObtenerIp", "Home", FormMethod.Post))
+{
+    <div class="text-center">
+        <h1 class="display-4">API GeoLoc</h1>
+        <p>Ingresa una dirección IP:</p>
+        <input type="text" name="ipAddress" id="ipAddressInput" />
+        <button type="submit">Enviar IP</button>
+    </div>
+
+    @if (Model != null)
+    {
+        @if (Model.Status == "success")
+        {
+            <div class="text-center">
+                <h3>Información de geolocalización:</h3>
+                <div class="elements">
+                    <div class="element"><b>Consulta:</b><p>@Model.Query</p></div>
+                    <div class="element"><b>País:</b><p>@Model.Country</p></div>
+                    <div class="element"><b>Ciudad:</b><p>@Model.City</p></div>
+                    <div class="element"><b>Región:</b><p>@Model.Region</p></div>
+                    <div class="element"><b>Nombre de la región:</b><p>@Model.RegionName</p></div>
+                    <div class="element"><b>Zona horaria:</b><p>@Model.Timezone</p></div>
+                    <div class="element"><b>Código de país:</b><p>@Model.CountryCode</p></div>
+                    <div class="element"><b>Código postal:</b><p>@Model.Zip</p></div>
+                    <div class="element"><b>Latitud:</b><p>@Model.Lat</p></div>
+                    <div class="element"><b>Longitud:</b><p>@Model.Lon</p></div>
+                    <div class="element"><b>ISP:</b><p>@Model.Isp</p></div>
+                    <div class="element"><b>Organización:</b><p>@Model.Org</p></div>
+                    <div class="element"><b>AS:</b><p>@Model.As</p></div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <p>Ha habido un error al obtener los datos</p>
+        }
+    }
+}
+
+@model GeoLocationInfo
+
+@{
+    ViewData["Title"] = "GeoLocation";
+}

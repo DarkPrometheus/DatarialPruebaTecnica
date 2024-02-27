@@ -1,0 +1,44 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.elements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.element {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 1.5rem;
+    margin: .1rem 0;
+}
+
+.element b{
+    width: 50%;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+.element p{
+    width: 50%;
+    text-align: left;
+}
